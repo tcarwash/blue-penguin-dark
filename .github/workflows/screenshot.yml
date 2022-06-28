@@ -19,6 +19,7 @@ jobs:
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
     - name: Take screenshot
+      id: screenshotter
       uses: swinton/screenshot-website@v1.x
       with:
         source: http://localhost:8000
@@ -29,5 +30,5 @@ jobs:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localdir: outputs.path.value
+        localdir: "${{ steps.screenshotter.outputs.path }}"
         remoteDir: "/"
