@@ -23,3 +23,8 @@ jobs:
       with:
         source: http://localhost:8000
         destination: screenshot.png
+    - name: Archive screenshot artifact
+      uses: actions/upload-artifact@v3
+        with:
+          name: screenshot
+          path: screenshot.png
