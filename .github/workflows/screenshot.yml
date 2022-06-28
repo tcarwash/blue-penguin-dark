@@ -23,11 +23,12 @@ jobs:
       with:
         source: http://localhost:8000
         destination: screenshot.png
+        path: _tmp/screenshot.png
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localdir: "_temp/screenshot.png"
+        localdir: "_tmp/screenshot.png"
         remoteDir: "/"
