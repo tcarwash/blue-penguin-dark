@@ -18,17 +18,17 @@ jobs:
     - run: |
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
-    - name: Take screenshot
-      id: screenshotter
-      uses: swinton/screenshot-website@v1.x
-      with:
-        source: http://localhost:8000
-        destination: screenshot.png
+    - name: Setup Node
+      uses: actions/setup-node@v3
+    - run: npm install --global capture-website-cli
+    - run: capture-website "http://127.0.0.1:8000" --output "screenshot.png"
+    - run: pwd
+    - run: ls
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localdir: "${{ steps.screenshotter.outputs.path }}"
+        localdir: "/home/runner/work/_temp/screenshot.png"
         remoteDir: "/"
