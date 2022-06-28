@@ -22,7 +22,7 @@ jobs:
       uses: swinton/screenshot-website@v1.x
       with:
         source: http://localhost:8000
-        destination: /_tmp/screenshot.png
+        destination: /screenshot.png
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
