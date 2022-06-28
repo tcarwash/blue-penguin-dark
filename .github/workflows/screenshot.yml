@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  screenshot:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
         python -m pip install "pelican[markdown]"
     - run: |
         pelican sample/content -s sample/settings.py -t .
-        pelican --listen
+        pelican --listen &
     - name: Take screenshot
       uses: swinton/screenshot-website@v1.x
       with:
