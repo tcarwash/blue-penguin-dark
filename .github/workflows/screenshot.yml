@@ -22,9 +22,12 @@ jobs:
       uses: swinton/screenshot-website@v1.x
       with:
         source: http://localhost:8000
-        destination: screenshot.png
-    - name: Archive screenshot artifact
-      uses: actions/upload-artifact@v3
+        destination: /opt/screenshot.png
+    - name: Upload screenshot
+      uses: genietim/ftp-action@releases/v4
       with:
-        name: screenshot
-        path: screenshot.png
+        host: ${{ secrets.FTP_SERVER }}
+        user: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localdir: "opt"
+        remoteDir: "/"
