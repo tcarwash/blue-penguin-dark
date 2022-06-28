@@ -23,6 +23,8 @@ jobs:
         pelican --listen &
     - run: mkdir dist
     - run: capture-website "http://127.0.0.1:8000" --output "dist/out.png"
+    - run: ls
+    - run: ls dist
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
