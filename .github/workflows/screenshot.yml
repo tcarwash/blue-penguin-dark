@@ -32,4 +32,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         localdir: "out.png"
         remoteDir: "/"
-     - run: ls
+    - run: ls
