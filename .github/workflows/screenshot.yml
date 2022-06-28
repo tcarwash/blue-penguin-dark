@@ -25,6 +25,6 @@ jobs:
         destination: screenshot.png
     - name: Archive screenshot artifact
       uses: actions/upload-artifact@v3
-        with:
-          name: screenshot
-          path: screenshot.png
+      with:
+        name: screenshot
+        path: screenshot.png
