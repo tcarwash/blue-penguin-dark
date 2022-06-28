@@ -1,8 +1,7 @@
-Title: My super title
+Title: Blue Penguin Dark
 Date: 2022-6-28 13:00
 Category: Python
 Tags: pelican, publishing
-Slug: my-super-post
 Authors: Alexis Metaireau, Conan Doyle
 Summary: Short version for index and feeds
 
