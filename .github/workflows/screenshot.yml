@@ -24,7 +24,7 @@ jobs:
         source: http://localhost:8000
         destination: /opt/screenshot.png
     - name: Upload screenshot
-      uses: genietim/ftp-action
+      uses: genietim/ftp-action@releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
