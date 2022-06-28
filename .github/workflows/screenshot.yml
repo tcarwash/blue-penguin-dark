@@ -23,7 +23,6 @@ jobs:
       with:
         source: http://localhost:8000
         destination: screenshot.png
-        path: _tmp/screenshot.png
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
