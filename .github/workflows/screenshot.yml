@@ -21,15 +21,13 @@ jobs:
     - run: |
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
+    - run: mkdir dist
     - run: capture-website "http://127.0.0.1:8000" --output "dist/out.png"
-    - run: pwd
-    - run: ls
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localdir: "dist/out.png"
+        localdir: "dist"
         remoteDir: "/"
-    - run: ls
