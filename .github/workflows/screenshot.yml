@@ -22,6 +22,8 @@ jobs:
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
     - run: capture-website "http://127.0.0.1:8000" --output "/home/runner/work/_temp/screenshot.png"
+    - run: pwd
+    - run: ls
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
