@@ -18,13 +18,11 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
     - run: npm install --global capture-website-cli
-    - run: sed '18,26d' static/css/main.css > static/css/main.css
-    - run: cat static/css/main.css
     - run: |
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
     - run: mkdir dist
-    - run: capture-website "http://127.0.0.1:8000" --output "dist/out.png"
+    - run: capture-website "http://127.0.0.1:8000" --dark-mode --output "dist/out.png"
     - name: Upload screenshot
       uses: genietim/ftp-action@releases/v2
       with:
