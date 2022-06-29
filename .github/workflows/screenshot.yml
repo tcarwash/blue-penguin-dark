@@ -18,9 +18,9 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
     - run: npm install --global capture-website-cli
+    - run: sed '18,26d' static/css/main.css > static/css/main.css
+    - run: cat static/css/main.css
     - run: |
-        sed '18,26d' static/css/main.css > static/css/main.css
-        cat static/css/main.css
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
     - run: mkdir dist
