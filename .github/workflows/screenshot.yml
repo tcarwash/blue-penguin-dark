@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-node@v3
     - run: npm install --global capture-website-cli
     - run: |
-        sed '18,26d' static/css/main.css > static/css/main.css
+        sed '18,26d' static/css/main.css | tee > static/css/main.css
         pelican sample/content -s sample/settings.py -t .
         pelican --listen &
     - run: mkdir dist
