@@ -1,9 +1,9 @@
-![screenshot](screenshot.png)
+![screenshot](https://tyler-carr.com/images/ftp/out.png)
 
 # Blue Penguin Dark for pelican
 A simple dark theme for pelican, with light/dark mode support using media queries available. Solarized pygments. Feeds support.
 
-This theme has been adapted from the original [Blue Penguin Theme](https://github.com/jody-frankowski/blue-penguin) for use on my website, all changes are generic and this theme can be used interchangeably with the original. 
+This theme has been adapted from the original [Blue Penguin Theme](https://github.com/jody-frankowski/blue-penguin) for use on [my website](https://tyler-carr.com), all changes are generic and this theme can be used interchangeably with the original. 
 
 ## Settings
 ```python
