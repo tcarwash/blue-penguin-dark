@@ -1,5 +1,4 @@
 name: Create-Screenshot
-
 on:
   release:
     types: [ created ]
@@ -9,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: set ref var
+      run: | 
+        echo "action_ref=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Set up Python
       uses: actions/setup-python@v2
     - name: Install pelican
@@ -28,11 +30,19 @@ jobs:
       with:
         name: screenshot
         path: dist/out.png
-    - name: Upload screenshot
-      uses: wangyucode/sftp-upload-action@v1.3.3
+    - name: Checkout tyler-carr.com
+      uses: actions/checkout@v2
+      with: 
+        repository: 'tcarwash/tyler-carr.com'
+        path: 'tyler-carr.com'
+    - run: |
+        mkdir -p tyler-carr.com/content/images/ftp
+        cp dist/out.png tyler-carr.com/content/images/ftp/out.png
+    - name: create pull request on tyler-carr.com
+      uses: peter-evans/create-pull-request@v4
       with:
-        host: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        privateKey: ${{ secrets.FTP_KEY }}
-        localdir: "dist"
-        remoteDir: "/"
+        token: ${{ secrets.pr_token }}
+        path: 'tyler-carr.com'
+        commit-message: 'blue-penguin-dark update ${{ env.action_ref }}'
+        delete-branch: True
+
