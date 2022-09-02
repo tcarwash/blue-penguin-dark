@@ -9,6 +9,9 @@ This theme has been adapted from the original [Blue Penguin Theme](https://githu
 ```python
 # all the following settings are *optional*
 
+# Site Logo
+SITELOGO = ''
+
 # HTML metadata
 SITEDESCRIPTION = ''
 
