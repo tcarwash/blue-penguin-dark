@@ -68,6 +68,3 @@ changes by email.
 
 ## Contributors
 See [CONTRIBUTORS.md](CONTRIBUTORS.md).
-
-## License
-Public domain.
